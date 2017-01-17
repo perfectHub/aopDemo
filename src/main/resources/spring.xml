@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <!-- 扫描 -->
+    <context:component-scan base-package="com.chen.*"/>
+    <!-- 激活自动代理功能 启用@AspectJ风格的注解：proxy-target-class="true"表示
+        它是指定只能使用CGLIB代理，那么对于final方法时会抛出错误，所以还是让spring自己选择是使用JDK动态代理
+     -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
